@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<head>
+
+</head>
+<body>
+    <div>
+        <form>
+            <label for="fname">Faculty Name:</label><br>
+            <input type="text" id="fname" value="{{row[1]}}" name="fname"><br>
+
+            <label for="cname">Course Name:</label><br>
+            <input type="text" id="cname" value="{{row[2]}}" name="cname"><br>
+
+            <label for="fcode">Faculty ID:</label><br>
+            <input type="text" id="fcode" value="{{row[3]}}" name="fcode"><br>
+
+            <label for="ccode">Course Code:</label><br>
+            <input type="text" id="ccode" value="{{row[4]}}" name="ccode"><br>
+
+            <label for="dept">Department:</label>
+            <select value="{{row[5]}}" name="dept" id="dept">
+                <option value="ISE">ISE</option>
+                <option value="CSE">CSE</option>
+                <option value="ECE">ECE</option>
+                <option value="MECH">MECH</option>
+                <option value="AIDS">AIDS</option>
+                <option value="AIML">AIML</option>
+            </select><br>
+
+            <label for="sem">Semester:</label>
+            <select value="{{row[6]}}" name="sem" id="sem">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+            </select><br>
+
+            <label for="sec">Section:</label>
+            <select value="{{row[7]}}" name="sec" id="sec">
+                <option value="A">A</option>
+                <option value="B">B</option>
+                <option value="C">C</option>
+            </select><br>
+
+            <label for="cpw">Classes per Week:</label><br>
+            <input type="number" id="cpw" value="{{row[8]}}" name="cpw" min="1"><br>
+
+            <label for="batch">Batch:</label>
+            <select value="{{row[9]}}" name="batch" id="batch">
+                <option value="0">All students must attend</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+            </select><br>
+            {% if action=='add' %}
+            <label for="dl">Double Lectures:</label>  
+            <input type="checkbox" id="dl" value=0 name="dl">
+            {% else %}
+            <label for="dl">Double Lectures:</label>  
+            <input type="checkbox" id="dl" value="{{row[10]}}" name="dl">
+            {% endif %}
+            <fieldset> 
+                <legend>Rooms</legend>
+                <div>
+                    <input type="checkbox" id="classroom" value="{{row[11]}}" name="room"/>
+                    <label for="classroom">Classroom</label>
+                </div>
+
+                <div>
+                    <input type="checkbox" id="isel1" value="{{row[11]}}" name="room"/>
+                    <label for="isel1">Lab 1</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="isel2" value="{{row[11]}}" name="room"/>
+                    <label for="isel2">Lab 2</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="isel3" value="{{row[11]}}" name="room"/>
+                    <label for="isel3">Lab 3</label>
+                </div>
+
+            </fieldset>
+            <button type="submit" formaction="/save/{{row[0]}}"  formmethod="post">Save</button>
+            <button type="submit" formaction="/delete/{{row[0]}}" formmethod="post">Delete</button>
+        </form>
+    </div>
+</body>
+
+
+<style>
+    fieldset{ border:2px solid #ccc; width:300px; height: 100px; overflow-y: scroll; }
+</style>

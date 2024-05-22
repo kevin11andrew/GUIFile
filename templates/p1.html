@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<head>
+
+</head>
+<body>
+    <div>
+        {% for row in rows %}
+            <p class="card"><a href="/view/{{row[0]}}">
+                {{ row[1]}}<br>{{row[2]}}<br>{{row[3]}}<br>{{row[4]+" "+row[5]}}
+            </a></p>
+        {% endfor %}
+        <p><a href="/add">
+            Add
+        </a></p>
+    </div>
+</body>
